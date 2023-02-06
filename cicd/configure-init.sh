@@ -9,4 +9,4 @@ aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY --profile $PROFIL
 aws configure set region $AWS_REGION --profile $PROFILE_NAME
 
 # verify that profile is configured
-aws configure list --profile $PROFILE_NAME
+#aws configure list --profile $PROFILE_NAME
