@@ -26,7 +26,7 @@ backend "s3" {
 # configured aws provider with proper credentials
 provider "aws" {
   region  = "eu-central-1" 
- # profile = "terraform-user" 
+ profile = "terraform_demi" 
 }
 
 
