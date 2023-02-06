@@ -1,19 +1,35 @@
-# configured aws provider with proper credentials
-provider "aws" {
-  region  = "us-east-1"
-  profile = "terraform-user"
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
+    }
+  }
+
+  required_version = ">= 1.2.0"
+
 }
+
 
 
 # store the terraform state file in s3
+
 terraform {
-  backend "s3" {
-    bucket  = "aosnote-terraform-state-bucket"
-    key     = "build/terraform.tfstate"
-    region  = "us-east-1"
-    profile = "terraform-user"
+backend "s3" {
+    bucket         = "yordanka-terraform-state-backend"
+    key            = "path/to/my/key"
+    region         = "eu-central-1"
+    dynamodb_table = "terraform_state"
   }
 }
+
+# configured aws provider with proper credentials
+provider "aws" {
+  region  = "eu-central-1" 
+ # profile = "terraform-user" 
+}
+
+
 
 
 # create default vpc if one does not exit
